@@ -1,0 +1,6 @@
+#usr/bin/bash
+echo "CPU Temperature:"
+sensors | awk '/^Package/ {print $4}'
+echo
+echo "CPU hogs:"
+ps axch -o cmd,%cpu --sort=-%cpu | head
